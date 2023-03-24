@@ -10,4 +10,10 @@ import java.util.List;
  */
 public interface UserService {
     List<User> QueryAllUsers();
+
+    void UpdateUser(User user);
+
+    void ResetPassword(User user);
+
+
 }

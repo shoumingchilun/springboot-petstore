@@ -7,15 +7,13 @@ import lombok.ToString;
 
 /**
  * @auther 齿轮
- * @create 2022-10-26-16:01
+ * @create 2023-03-24-20:20
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Transaction {
-    private long TransactionID;
-    private long UserId;
-    private String specificInfo;
-    private String state;
+public class Species {
+    private int number;
+    private String species;
 }

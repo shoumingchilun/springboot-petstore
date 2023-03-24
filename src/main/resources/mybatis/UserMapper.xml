@@ -11,4 +11,20 @@
         select *
         from users;
     </select>
+
+    <update id="UpdateUserById">
+        update users
+        set name    = #{name},
+            address = #{address},
+            account=#{account}
+        where userID = #{userID}
+    </update>
+
+    <update id="ResetPassword">
+        update users
+        set password = #{password}
+        where userID = #{userID}
+    </update>
+
+
 </mapper>
