@@ -40,4 +40,8 @@ public class ServiceSpeciesTest {
         speciesService.deleteSpecies(new Species(9, "人类"));
         testGet();
     }
+    @Test
+    public void testGetSpecies(){
+        System.out.println(speciesService.getSpecies("宠物猫"));
+    }
 }

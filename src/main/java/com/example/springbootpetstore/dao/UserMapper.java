@@ -1,5 +1,6 @@
 package com.example.springbootpetstore.dao;
 
+import com.example.springbootpetstore.pojo.Transaction;
 import com.example.springbootpetstore.pojo.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
@@ -23,4 +24,6 @@ public interface UserMapper {
 
     //根据ID重置密码，对应密码重置功能
     void ResetPassword(User user);
+    //根据id查看所有订单
+    List<Transaction> QueryAllTransactionOfUser(User user);
 }

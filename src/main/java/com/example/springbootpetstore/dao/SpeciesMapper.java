@@ -20,4 +20,6 @@ public interface SpeciesMapper {
     void addNewSpecies(Species species);
     void deleteSpecies(Species species);
     void updateSpecies(Species species);
+    //根据宠物物种名字获取id
+    Species getSpecies(String speciesName);
 }

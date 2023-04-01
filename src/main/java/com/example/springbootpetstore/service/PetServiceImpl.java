@@ -2,6 +2,7 @@ package com.example.springbootpetstore.service;
 
 import com.example.springbootpetstore.dao.PetMapper;
 import com.example.springbootpetstore.pojo.Pet;
+import com.example.springbootpetstore.pojo.Species;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -54,5 +55,20 @@ public class PetServiceImpl implements PetService {
     @Override
     public void updatePet(Pet pet) {
         petMapper.updatePet(pet);
+    }
+
+    @Override
+    public List<Pet> searchPetsBySpecies(int species) {
+        return petMapper.searchPetsBySpecies(species);
+    }
+
+    @Override
+    public List<Species> queryAllSpecies() {
+        return petMapper.queryAllSpecies();
+    }
+
+    @Override
+    public Pet queryPetBySpeciesAndName(int species, String name) {
+        return petMapper.queryPetBySpeciesAndName(species,name);
     }
 }

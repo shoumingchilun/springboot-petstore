@@ -1,6 +1,7 @@
 package com.example.springbootpetstore.dao;
 
 import com.example.springbootpetstore.pojo.Pet;
+import com.example.springbootpetstore.pojo.Species;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -25,9 +26,12 @@ public interface PetMapper {
 
     //改
     void updatePet(Pet pet);
-
     //查
     Pet queryPetById(Pet pet);
     List<Pet> queryAllPets();
     List<Pet> queryPetWithoutInventory();
+    List<Pet> searchPetsBySpecies(int species);
+    //查询所有宠物种类
+    List<Species> queryAllSpecies();
+    Pet queryPetBySpeciesAndName(int species,String name);
 }

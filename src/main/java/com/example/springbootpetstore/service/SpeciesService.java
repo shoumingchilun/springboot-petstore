@@ -16,4 +16,6 @@ public interface SpeciesService {
 
     //查询，获得Species的Map集合
     Map<Integer,String> getAllSpecies();
+    //根据宠物物种名字获取id
+    Species getSpecies(String speciesName);
 }

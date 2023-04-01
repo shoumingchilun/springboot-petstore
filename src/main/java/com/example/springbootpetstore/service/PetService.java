@@ -1,6 +1,7 @@
 package com.example.springbootpetstore.service;
 
 import com.example.springbootpetstore.pojo.Pet;
+import com.example.springbootpetstore.pojo.Species;
 
 import java.util.List;
 
@@ -18,5 +19,10 @@ public interface PetService {
     void deletePet(Pet pet);
 
     void updatePet(Pet pet);
+    //分类查询宠物
+    List<Pet> searchPetsBySpecies(int species);
+    //查询所有宠物种类
+    List<Species> queryAllSpecies();
+    Pet queryPetBySpeciesAndName(int species,String name);
 
 }

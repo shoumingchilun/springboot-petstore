@@ -53,5 +53,15 @@
         where petID = #{petID}
     </update>
 
+    <select id="searchPetsBySpecies" resultType="com.example.springbootpetstore.pojo.Pet">
+        select *from pets where species=#{species}
+    </select>
 
+    <select id="queryAllSpecies" resultType="Species">
+        select *from pet_species
+    </select>
+
+    <select id="queryPetBySpeciesAndName" resultType="Pet">
+        select *from pets where species=#{species} and name=#{name}
+    </select>
 </mapper>

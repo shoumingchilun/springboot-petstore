@@ -35,10 +35,16 @@ public class UserServiceTest {
     public void testResetPassword(){
         User user = new User();
         user.setUserID(24);
-        user.setPassword("pjyssb");
+        user.setPassword("pjyyyds");
 
         userService.ResetPassword(user);
         userService.QueryAllUsers().forEach(System.out::println);
+    }
+    @Test
+    public void testGetTransaction(){
+        User user = new User();
+        user.setUserID(23);
+        System.out.println(userService.QueryAllTransactionOfUser(user));
     }
 
 }

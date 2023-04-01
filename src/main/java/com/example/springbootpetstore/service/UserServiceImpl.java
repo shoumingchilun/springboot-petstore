@@ -1,6 +1,7 @@
 package com.example.springbootpetstore.service;
 
 import com.example.springbootpetstore.dao.UserMapper;
+import com.example.springbootpetstore.pojo.Transaction;
 import com.example.springbootpetstore.pojo.User;
 import com.example.springbootpetstore.utils.Hash;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,6 @@ public class UserServiceImpl implements UserService{
     //注：只使用userID、name、address、account属性
     @Override
     public void UpdateUser(User user) {
-        user.setPassword(Hash.SHA256Encrypt(user.getPassword()));
         userMapper.UpdateUserById(user);
     }
 
@@ -42,6 +42,10 @@ public class UserServiceImpl implements UserService{
         userMapper.ResetPassword(user);
     }
 
+    @Override
+    public List<Transaction> QueryAllTransactionOfUser(User user) {
+        return userMapper.QueryAllTransactionOfUser(user);
+    }
 
 
 }
