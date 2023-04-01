@@ -26,5 +26,10 @@
         where userID = #{userID}
     </update>
 
+    <select id="QueryAllTransactionOfUser" resultType="Transaction">
+        select *
+        from transactions
+        where UserId=#{userID}
+    </select>
 
 </mapper>

@@ -14,6 +14,8 @@ import java.util.List;
 @Mapper
 @Repository
 public interface TransactionMapper {
+    //查询所有订单
+    List<Transaction> getAllTransaction();
     //根据userID获得对应用户的Transaction集合
     List<Transaction> getTransactionsByUserID(User user);
 
@@ -22,4 +24,7 @@ public interface TransactionMapper {
 
     //更改指定Transaction的状态
     void updateTransaction(Transaction transaction);
+
+    //删除订单
+    void deleteTransaction(Transaction transaction);
 }

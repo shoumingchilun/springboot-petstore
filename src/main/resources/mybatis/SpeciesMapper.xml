@@ -24,4 +24,8 @@
     <select id="getAllSpecies" resultType="com.example.springbootpetstore.pojo.Species">
         select *from pet_species;
     </select>
+
+    <select id="getSpecies" resultType="Species">
+        select *from pet_species where species=#{speciesName}
+    </select>
 </mapper>

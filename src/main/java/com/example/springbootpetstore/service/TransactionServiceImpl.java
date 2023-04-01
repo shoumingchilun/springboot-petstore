@@ -13,22 +13,38 @@ import java.util.List;
  * @create 2023-03-25-0:50
  */
 @Service
-public class TransactionServiceImpl implements TransactionService {
+public class TransactionServiceImpl implements TransactionService{
+
+
     @Autowired
     TransactionMapper mapper;
-
     @Override
-    public List<Transaction> getTransactionsByUserID(User user) {
-        return mapper.getTransactionsByUserID(user);
+    public List<Transaction> getAllTransaction() {
+        return mapper.getAllTransaction();
     }
 
     @Override
+    public List<Transaction> getTransactionsByUserID(User user) {
+        return  mapper.getTransactionsByUserID(user);
+
+
+    @Override
     public void createTransaction(Transaction transaction) {
+
         mapper.createTransaction(transaction);
+
     }
 
     @Override
     public void updateTransaction(Transaction transaction) {
+
+        transactionMapper.updateTransaction(transaction);
+    }
+
+    @Override
+    public void deleteTransaction(Transaction transaction) {
+        transactionMapper.deleteTransaction(transaction);
         mapper.updateTransaction(transaction);
+
     }
 }

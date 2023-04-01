@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.math.BigDecimal;
-import java.util.Objects;
 
 /**
  * @auther 齿轮
@@ -20,7 +19,7 @@ import java.util.Objects;
 @ToString
 public class Pet {
     private long petID;
-    private long species;
+    private long species; //物种编号
     private String name;
     private String description;
     private String picture;

@@ -1,10 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper
-        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.example.springbootpetstore.dao.TransactionMapper"><!--mapper接口与映射文件关联-->
-    <!--mapper接口的全类名和映射文件的命名空间（namespace）保持一致-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--mybatis-3-mapper.dtd:约束文件的名称，限制和检查在当前文件中出现的标签和属性符合mybatis的要求-->
+<!--namespace：命名空间，要有唯一的值，要求使用dao接口的权限定名称（一个dao接口对应一个mapper，namespace指明对应哪个dao接口）-->
+<mapper namespace="com.example.springbootpetstore.dao.TransactionMapper">
+
+        <select id="getAllTransaction" resultType="Transaction">
+                select * from transactions
+        </select>
+
+        <select id="getTransactionsByUserID" resultType="Transaction">
+                select *
+                from transactions
+                where UserId=#{userID};
+        </select>
+
+        <update id="updateTransaction" parameterType="Transaction">
+                update transactions  set state=#{state}  where TransactionID=#{transactionID}
+        </update>
+        <delete id="deleteTransaction">
+                delete from transactions where TransactionID=#{transactionID}
+        </delete>
     <select id="getTransactionsByUserID" resultType="com.example.springbootpetstore.pojo.Transaction">
         select *
         from transactions

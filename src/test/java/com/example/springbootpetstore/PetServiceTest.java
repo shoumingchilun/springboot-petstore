@@ -57,4 +57,16 @@ public class PetServiceTest {
         service.updatePet(p);
         System.out.println(service.queryPetById(p));
     }
+    @Test
+    public void testSpecies(){
+        System.out.println(service.searchPetsBySpecies(3));
+    }
+    @Test
+    public void testAllSpecies(){
+        System.out.println(service.queryAllSpecies());
+    }
+    @Test
+    public void testQueryPetBySpeciesAndName(){
+        System.out.println(service.queryPetBySpeciesAndName(1,"小猫1号"));
+    }
 }

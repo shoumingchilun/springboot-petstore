@@ -42,4 +42,9 @@ public class SpeciesServiceImpl implements SpeciesService{
         });
         return map;
     }
+
+    @Override
+    public Species getSpecies(String speciesName) {
+        return species2Mapper.getSpecies(speciesName);
+    }
 }
