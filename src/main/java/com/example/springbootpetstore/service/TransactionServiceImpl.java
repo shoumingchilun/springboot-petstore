@@ -9,36 +9,42 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * @author 皮皮皮
- * @date 2023/3/31 12:59
+ * @auther 齿轮
+ * @create 2023-03-25-0:50
  */
 @Service
 public class TransactionServiceImpl implements TransactionService{
-    @Autowired
-    TransactionMapper transactionMapper;
 
+
+    @Autowired
+    TransactionMapper mapper;
     @Override
     public List<Transaction> getAllTransaction() {
-        return transactionMapper.getAllTransaction();
+        return mapper.getAllTransaction();
     }
 
     @Override
     public List<Transaction> getTransactionsByUserID(User user) {
-        return  transactionMapper.getTransactionsByUserID(user);
-    }
+        return  mapper.getTransactionsByUserID(user);
+
 
     @Override
     public void createTransaction(Transaction transaction) {
+
+        mapper.createTransaction(transaction);
 
     }
 
     @Override
     public void updateTransaction(Transaction transaction) {
+
         transactionMapper.updateTransaction(transaction);
     }
 
     @Override
     public void deleteTransaction(Transaction transaction) {
         transactionMapper.deleteTransaction(transaction);
+        mapper.updateTransaction(transaction);
+
     }
 }

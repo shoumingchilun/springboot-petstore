@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--mybatis-3-mapper.dtd:约束文件的名称，限制和检查在当前文件中出现的标签和属性符合mybatis的要求-->
 <!--namespace：命名空间，要有唯一的值，要求使用dao接口的权限定名称（一个dao接口对应一个mapper，namespace指明对应哪个dao接口）-->
@@ -20,4 +21,23 @@
         <delete id="deleteTransaction">
                 delete from transactions where TransactionID=#{transactionID}
         </delete>
+    <select id="getTransactionsByUserID" resultType="com.example.springbootpetstore.pojo.Transaction">
+        select *
+        from transactions
+        where UserId = #{userID}
+    </select>
+
+    <insert id="createTransaction" useGeneratedKeys="true" keyProperty="TransactionID">
+        insert into transactions
+        values (null, #{UserId}, #{specificInfo}, #{state});
+    </insert>
+
+    <update id="updateTransaction">
+        update transactions
+        set specificInfo = #{specificInfo},
+            state        = #{state}
+        where TransactionID = #{TransactionID};
+    </update>
+    <!--mapper接口中方法的方法名和映射文件中编写SQL的标签的id属性保持一致-->
+
 </mapper>
